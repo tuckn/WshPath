@@ -1,0 +1,89 @@
+{
+  "name": "@tuckn/WshPath",
+  "description": "Adds some useful functions (similar to Node.js path) that handles file path strings into WSH (Windows Script Host).",
+  "version": "1.0.0",
+  "author": "Tuckn <tuckn333+github@gmail.com>",
+  "private": true,
+  "license": "MIT",
+  "homepage": "https://docs.tuckn.net/WshPath",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuckn/WshPath.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tuckn/WshPath/issues"
+  },
+  "keywords": [
+    "Windows",
+    "WSH",
+    "WSF",
+    "JScript",
+    "VBScript",
+    "module"
+  ],
+  "files": [],
+  "main": "",
+  "bin": {},
+  "scripts": {
+    "install:WshJest": "git submodule add https://github.com/tuckn/WshJest.git ./WshModules/WshJest",
+    "install:WshUtil": "git submodule add https://github.com/tuckn/WshUtil.git ./WshModules/WshUtil",
+    "installModules": "run-s install:*",
+    "updateModules": "git submodule update --remote",
+    "fix:eslint": "npm run lint:eslint -- --fix",
+    "fix:prettier": "npm run lint:prettier -- --write",
+    "fix": "run-p fix:*",
+    "lint:eslint": "eslint --ext js,ts .",
+    "lint:prettier": "prettier -l \"**/*.{json,md,yml,yaml}\"",
+    "lint:type": "tsc --noEmit",
+    "lint": "run-p lint:*",
+    "test:name:Values": "cscript //nologo ./Package.wsf //job:test:Path -t Values$",
+    "test:name:isUNC": "cscript //nologo ./Package.wsf //job:test:Path -t isUNC$",
+    "test:name:dirname": "cscript //nologo ./Package.wsf //job:test:Path -t dirname$",
+    "test:name:basename": "cscript //nologo ./Package.wsf //job:test:Path -t basename$",
+    "test:name:extname": "cscript //nologo ./Package.wsf //job:test:Path -t extname$",
+    "test:name:parse": "cscript //nologo ./Package.wsf //job:test:Path -t parse$",
+    "test:name:isAbsolute": "cscript //nologo ./Package.wsf //job:test:Path -t isAbsolute$",
+    "test:name:normalize": "cscript //nologo ./Package.wsf //job:test:Path -t normalize$",
+    "test:name:join": "cscript //nologo ./Package.wsf //job:test:Path -t join$",
+    "test:name:resolve": "cscript //nologo ./Package.wsf //job:test:Path -t resolve$",
+    "test:name:relative": "cscript //nologo ./Package.wsf //job:test:Path -t relative$",
+    "test:name:toUNC": "cscript //nologo ./Package.wsf //job:test:Path -t toUNC$",
+    "test:Path": "cscript //nologo ./Package.wsf //job:test:Path",
+    "build": "wsh-packager bundle ./Package.wsf",
+    "test:dist:module": "cscript //nologo ./Package.wsf //job:test:dist:module",
+    "test:dist:bundle": "cscript //nologo ./Package.wsf //job:test:dist:bundle",
+    "test": "run-s test:dist:*",
+    "predocs": "rimraf ./docs",
+    "docs:common": "jsdoc --configure ./jsdoc.json",
+    "cp-docs-css": "cpx ./assets/styles/jsdoc.css ./docs/styles/",
+    "cp-docs-img": "cpx ./assets/img/**/* ./docs/img/",
+    "postdocs": "run-p cp-docs-*",
+    "docs": "run-s docs:*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo @FIXME \"npx lint-staged\" fixes all .js!"
+    }
+  },
+  "lint-staged": {
+    "*.{js}": "eslint --fix",
+    "*.{json,css,md,yml,yaml}": "prettier --write"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@tuckn/wsh-packager": "^1.0.0",
+    "@types/activex-scripting": "^1.0.7",
+    "@types/windows-script-host": "^5.8.3",
+    "cpx": "^1.5.0",
+    "docdash": "^1.2.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-jsdoc": "^24.0.2",
+    "eslint-plugin-prettier": "3.1.3",
+    "husky": "4.2.5",
+    "jsdoc": "^3.6.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "2.0.5",
+    "rimraf": "^3.0.2"
+  }
+}
