@@ -1,6 +1,6 @@
-# WSH: Path
+# WshPath
 
-Adds some useful functions (similar to Node.js path) that handles file path strings in WSH (Windows Script Host).
+Adds some useful functions (similar to Node.js path) that handles file path strings into WSH (Windows Script Host).
 
 ## Operating environment
 

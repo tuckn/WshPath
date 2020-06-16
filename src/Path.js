@@ -64,7 +64,7 @@ if (!__dirname) var __dirname = __filename.replace(/\\[^\\]+$/, '');
   var path = Wsh.Path;
 
   /** @constant {string} */
-  var MODULE_TITLE = 'WshModeJs/Path.js';
+  var MODULE_TITLE = 'WshPath/Path.js';
 
   var throwErrNonStr = function (functionName, typeErrVal) {
     util.throwTypeError('string', MODULE_TITLE, functionName, typeErrVal);
