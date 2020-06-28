@@ -2,6 +2,18 @@
 
 Adds some useful functions (similar to Node.js path) that handles file path strings into WSH (Windows Script Host).
 
+## tuckn/Wsh series dependency
+
+[WshModeJs](https://github.com/tuckn/WshModeJs)  
+└─ [WshProcess](https://github.com/tuckn/WshProcess)  
+&emsp;&emsp;└─ [WshFileSystem](https://github.com/tuckn/WshFileSystem)  
+&emsp;&emsp;&emsp;&emsp;└─ [WshOS](https://github.com/tuckn/WshOS)  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─ WshPath - This repository  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─ [WshUtil](https://github.com/tuckn/WshUtil)  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─ [WshPolyfill](https://github.com/tuckn/WshPolyfill)  
+
+The upper layer module can use all the functions of the lower layer module.
+
 ## Operating environment
 
 Works on JScript in Windows.
@@ -105,55 +117,14 @@ path.relative(from, to);
 Many other functions are added.
 See the [documentation](https://docs.tuckn.net/WshPath) for more details.
 
-And you can also use all [WshPolyfill](https://github.com/tuckn/WshPolyfill) functions and all [WshUtil](https://github.com/tuckn/WshUtil) functions.
-for example,
-
-### WshPolyfill
-
-```js
-var array1 = [1, 4, 9, 16];
-var map1 = array1.map(function(x) {
-  return x * 2;
-});
-
-console.dir(map1);
-// Output: [2, 8, 18, 32]
-
-var strJson = JSON.stringify({ from: array1, to: map1 });
-console.log(strJson);
-// Output: '{"from":[1,4,9,16],"to":[2,8,18,32]}'
-
-// and so on...
-```
-
-### WshUtil
-
-```js
-var _ = Wsh.Util; // Shorthand
-
-// Check deep strict equality
-_.isEqual({ a: 'A', b: ['B'] }, { a: 'A', b: ['B'] }); // true
-_.isEqual({ a: 'A', b: ['B'] }, { a: 'A', b: ['b'] }); // false
-
-// Create a unique ID
-_.uuidv4(); // '9f1e53ba-3f08-4c9d-91c7-ad4226312f40'
-
-// Create a date string
-_.createDateString(); // '20200528T065424+0900'
-_.createDateString('yyyy-MM'); // '2020-05'
-
-// 半角カナを全角に変換
-_.toZenkakuKana('もぅﾏﾁﾞ無理。'); // 'もぅマヂ無理'
-
-// and so on...
-```
+And you can also use all functions of [tuckn/WshPolyfill](https://github.com/tuckn/WshPolyfill) and [tuckn/WshUtil](https://github.com/tuckn/WshUtil).
 
 ## Documentation
 
 See all specifications [here](https://docs.tuckn.net/WshPath) and also below.
 
 - [WshPolyfill](https://docs.tuckn.net/WshPolyfill)
-- [WshUtil](https://docs.tuckn.net/WshUtil).
+- [WshUtil](https://docs.tuckn.net/WshUtil)
 
 ## License
 
