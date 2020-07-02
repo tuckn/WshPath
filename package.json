@@ -3,7 +3,7 @@
   "description": "Adds some useful functions (similar to Node.js path) that handles file path strings into WSH (Windows Script Host).",
   "version": "1.0.0",
   "author": "Tuckn <tuckn333+github@gmail.com>",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "homepage": "https://docs.tuckn.net/WshPath",
   "repository": {
@@ -71,6 +71,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@tuckn/insert-gtag": "^1.1.0",
     "@tuckn/wsh-packager": "^1.0.0",
     "@types/activex-scripting": "^1.0.7",
     "@types/windows-script-host": "^5.8.3",
