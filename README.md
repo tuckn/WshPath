@@ -1,6 +1,6 @@
 # WshPath
 
-Adds some useful functions (similar to Node.js path) that handles file path strings into WSH (Windows Script Host).
+Adds useful functions (similar to Node.js path) that handles file path strings into WSH (Windows Script Host).
 
 ## tuckn/Wsh series dependency
 
@@ -66,7 +66,7 @@ This allows the following functions to be used in _.\MyScript.js_.
 
 ## Usage
 
-Now _.\MyScript.js_ (JScript ) can use the useful functions to handle paths.
+Now _.\MyScript.js_ (JScript) can use the useful functions to handle paths.
 for example,
 
 ```js

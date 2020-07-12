@@ -43,7 +43,7 @@
     },
     "meta": {
       "title": "WshPath",
-      "description": "Adds functions (similar to Node.js path) that handles file path strings into WSH (Windows Script Host).",
+      "description": "Adds useful functions (similar to Node.js path) that handles file path strings in WSH (Windows Script Host).",
       "keyword": "Windows, WSH, WSF, JScript, VBScript, modules, path"
     },
     "search": true,
