@@ -37,7 +37,7 @@ or
 > git submodule add https://github.com/tuckn/WshPath.git ./WshModules/WshPath
 ```
 
-(3) Include _.\WshPath\dist\bundle.js_ into your .wsf file.
+(3) Include _.\\WshPath\\dist\\bundle.js_ into your .wsf file.
 For Example, if your file structure is
 
 ```console
@@ -62,25 +62,20 @@ The content of above _Run.wsf_ is
 ```
 
 I recommend this .wsf file encoding to be UTF-8 [BOM, CRLF].
-This allows the following functions to be used in _.\MyScript.js_.
+This allows the following functions to be used in _.\\MyScript.js_.
 
 ## Usage
 
-Now _.\MyScript.js_ (JScript) can use the useful functions to handle paths.
+Now _.\\MyScript.js_ (JScript) can use the useful functions to handle paths.
 for example,
 
 ```js
 var path = Wsh.Path; // Shorthand
 
-console.log(__filename); // 'D:\MyWshProject\Run.wsf'
-console.log(__dirname); // 'D:\MyWshProject'
-console.log(path.delimiter); // ';'
-console.log(path.sep); // '\'
-
-path.isUNC('C:\\foo\\bar.baz'); // false
-path.isUNC('\\\\CompName\\'); // false
-path.isUNC('\\\\CompName\\SharedDir'); // true
-path.isUNC('//CompName//SharedDir'); // false
+console.log(__filename); // "D:\MyWshProject\Run.wsf"
+console.log(__dirname); // "D:\MyWshProject"
+console.log(path.delimiter); // ';"
+console.log(path.sep); // "\"
 
 path.dirname('C:\\My Data\\image.jpg'); // 'C:\\My Data'
 path.basename('C:\\foo\\bar\\baz\\quux.html'); // 'quux.html'
@@ -107,6 +102,11 @@ path.join(['mingw64\\lib', '..\\etc', '.gitconfig']);
 path.resolve(['mingw64\\lib', '..\\etc', '.gitconfig']);
 // Returns: '<Current Working Directory>\\mingw64\\etc\\.gitconfig'
 
+path.isUNC('C:\\foo\\bar.baz'); // false
+path.isUNC('\\\\CompName\\'); // false
+path.isUNC('\\\\CompName\\SharedDir'); // true
+path.isUNC('//CompName//SharedDir'); // false
+
 path.toUNC('C:\\foo\\bar.baz');
 // Returns: '\\\\<Your CompName>\\C$\\foo\\bar.baz'
 
@@ -119,7 +119,12 @@ path.relative(from, to);
 Many other functions are added.
 See the [documentation](https://docs.tuckn.net/WshPath) for more details.
 
-And you can also use all functions of [tuckn/WshPolyfill](https://github.com/tuckn/WshPolyfill) and [tuckn/WshUtil](https://github.com/tuckn/WshUtil).
+### Dependency Modules
+
+You can also use the following useful functions in _.\\MyScript.js_ (JScript).
+
+- [tuckn/WshPolyfill](https://github.com/tuckn/WshPolyfill)
+- [tuckn/WshUtil](https://github.com/tuckn/WshUtil)
 
 ## Documentation
 
