@@ -7,14 +7,16 @@
  * The script file path which is specified 1st argument by cscript.exe or wscript.exe. It is not this script path.
  *
  * @global
+ * @name __filename
  * @constant {string}
  */
 if (!__filename) var __filename = String(WScript.ScriptFullName);
 
 /**
- * The parent directory path of `__filename`. Note the difference from `process.cwd`,  `WScript.CreateObject('WScript.Shell').CurrentDirectory`
+ * The parent directory path of `__filename`. Note the difference from {@link https://docs.tuckn.net/WshProcess/process.html#.cwd|process.cwd} that is `WScript.CreateObject('WScript.Shell').CurrentDirectory`
  *
  * @global
+ * @name __dirname
  * @constant {string}
  */
 if (!__dirname) var __dirname = __filename.replace(/\\[^\\]+$/, '');
