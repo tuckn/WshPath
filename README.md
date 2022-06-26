@@ -1,6 +1,6 @@
 # WshPath
 
-Adds useful functions (similar to Node.js path) that handles file path strings into WSH (Windows Script Host).
+Adds useful functions (similar to Node.js path) that handle file path strings into WSH (Windows Script Host).
 
 ## tuckn/Wsh series dependency
 
@@ -29,7 +29,7 @@ D:\> mkdir MyWshProject
 D:\> cd MyWshProject
 ```
 
-(2) Download this ZIP and unzipping or Use following `git` command.
+(2) Download this ZIP and unzip or Use the following `git` command.
 
 ```console
 > git clone https://github.com/tuckn/WshPath.git ./WshModules/WshPath
@@ -37,12 +37,24 @@ or
 > git submodule add https://github.com/tuckn/WshPath.git ./WshModules/WshPath
 ```
 
-(3) Include _.\\WshPath\\dist\\bundle.js_ into your .wsf file.
-For Example, if your file structure is
+(3) Create your JScript (.js) file. For Example,
 
 ```console
 D:\MyWshProject\
-├─ Run.wsf
+├─ MyScript.js <- Your JScript code will be written in this.
+└─ WshModules\
+    └─ WshPath\
+        └─ dist\
+          └─ bundle.js
+```
+
+I recommend JScript (.js) file encoding to be UTF-8 [BOM, CRLF].
+
+(4) Create your WSF packaging scripts file (.wsf).
+
+```console
+D:\MyWshProject\
+├─ Run.wsf <- WSH entry file
 ├─ MyScript.js
 └─ WshModules\
     └─ WshPath\
@@ -50,7 +62,8 @@ D:\MyWshProject\
           └─ bundle.js
 ```
 
-The content of above _Run.wsf_ is
+And you should include _.../dist/bundle.js_ into the WSF file.
+For Example, The content of the above _Run.wsf_ is
 
 ```xml
 <package>
@@ -61,13 +74,14 @@ The content of above _Run.wsf_ is
 </package>
 ```
 
-I recommend this .wsf file encoding to be UTF-8 [BOM, CRLF].
-This allows the following functions to be used in _.\\MyScript.js_.
+I recommend this WSH file (.wsf) encoding to be UTF-8 [BOM, CRLF].
+
+Awesome! This WSH configuration allows you to use the following functions in JScript (_.\\MyScript.js_).
 
 ## Usage
 
-Now _.\\MyScript.js_ (JScript) can use the useful functions to handle paths.
-for example,
+Now your JScript (_.\\MyScript.js_ ) can use helper functions to handle paths.
+For example,
 
 ```js
 var path = Wsh.Path; // Shorthand
@@ -96,10 +110,10 @@ path.isAbsolute('.'); // false
 path.normalize('C:\\Git\\mingw64\\lib\\..\\etc\\.gitconfig');
 // Returns: 'C:\\Git\\mingw64\\etc\\.gitconfig'
 
-path.join(['mingw64\\lib', '..\\etc', '.gitconfig']);
+path.join('mingw64\\lib', '..\\etc', '.gitconfig');
 // Returns: 'mingw64\\etc\\.gitconfig'
 
-path.resolve(['mingw64\\lib', '..\\etc', '.gitconfig']);
+path.resolve('mingw64\\lib', '..\\etc', '.gitconfig');
 // Returns: '<Current Working Directory>\\mingw64\\etc\\.gitconfig'
 
 path.isUNC('C:\\foo\\bar.baz'); // false
@@ -116,12 +130,12 @@ path.relative(from, to);
 // Returns: '..\\..\\Converter\\ImageMagick\\convert.exe'
 ```
 
-Many other functions are added.
+Many other functions will be added.
 See the [documentation](https://docs.tuckn.net/WshPath) for more details.
 
 ### Dependency Modules
 
-You can also use the following useful functions in _.\\MyScript.js_ (JScript).
+You can also use the following helper functions in your JScript (_.\\MyScript.js_).
 
 - [tuckn/WshPolyfill](https://github.com/tuckn/WshPolyfill)
 - [tuckn/WshUtil](https://github.com/tuckn/WshUtil)

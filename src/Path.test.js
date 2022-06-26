@@ -82,6 +82,9 @@ describe('Path', function () {
     var pt09 = '..\\.config\\settings.json';
     expect(path.dirname(pt09)).toBe('..\\.config');
 
+    var pt10 = 'D:\\logs\\*.txt';
+    expect(path.dirname(pt10)).toBe('D:\\logs');
+
     expect(path.dirname('settings.json')).toBe('.');
 
     // Imitate the behavior of Node.js path.dirname

@@ -143,6 +143,9 @@ path.dirname('C:\\My Data');
 path.dirname('C:\\');
 // Returns: 'C:\\'
 
+path.dirname('D:\\logs\\*.txt');
+// Returns: 'D:\\logs'
+
 // UNC
 path.dirname('\\\\CompName\\SharedDir\\photo.jpg');
 // Returns: '\\\\CompName\\SharedDir\\'
@@ -453,16 +456,17 @@ path.normalize('settings.json');
    * @example
 var path = Wsh.Path;
 
-path.join(['C:', 'Program Files (x86)', 'Microsoft.NET', 'RedistList', 'AssemblyList_4_client.xml']);
+path.join('C:', 'Program Files (x86)', 'Microsoft.NET', 'RedistList', 'AssemblyList_4_client.xml');
 // Returns: 'C:\\Program Files (x86)\\Microsoft.NET\\RedistList\\AssemblyList_4_client.xml'
 
-path.join(['C:\\Git\\', '\\mingw64\\', 'lib', '..\\etc', '.gitconfig']);
+path.join('C:\\Git\\', '\\mingw64\\', 'lib', '..\\etc', '.gitconfig');
 // Returns: 'C:\\Git\\mingw64\\etc\\.gitconfig''
 
-path.join(['mingw64\\lib', '..\\etc', '.gitconfig']);
+var argVar = ['mingw64\\lib', '..\\etc', '.gitconfig'];
+path.join.apply(null, argVar);
 // Returns: 'mingw64\\etc\\.gitconfig'
 
-path.join(['\\\\CompName', 'Public', 'photo3.jpg']);
+path.join('\\\\CompName', 'Public', 'photo3.jpg');
 // Returns: '\\\\CompName\\Public\\photo3.jpg'
    * @function join
    * @memberof Wsh.Path
@@ -494,19 +498,20 @@ var path = Wsh.Path;
 path.resolve('');
 // Returns: <The current direcotry path>
 
-path.resolve(['C:', 'Program Files (x86)', 'Microsoft.NET', 'RedistList', 'AssemblyList_4_client.xml']);
+path.resolve('C:', 'Program Files (x86)', 'Microsoft.NET', 'RedistList', 'AssemblyList_4_client.xml');
 // Returns: 'C:\\Program Files (x86)\\Microsoft.NET\\RedistList\\AssemblyList_4_client.xml'
 
-path.resolve(['C:\\Git\\', '\\mingw64\\', 'lib', '..\\etc', '.gitconfig']);
+path.resolve('C:\\Git\\', '\\mingw64\\', 'lib', '..\\etc', '.gitconfig');
 // Returns: 'C:\\Git\\mingw64\\etc\\.gitconfig'
 
-path.resolve(['mingw64\\lib', '..\\etc', '.gitconfig']);
+path.resolve('mingw64\\lib', '..\\etc', '.gitconfig');
 // Returns: '<Current Path>\\mingw64\\etc\\.gitconfig'
 
-path.resolve(['\\\\CompName', 'Public', 'photo3.jpg']);
+path.resolve('\\\\CompName', 'Public', 'photo3.jpg');
 // Returns: '\\\\CompName\\Public\\photo3.jpg'
 
-path.resolve.apply(['C:\\Git', 'D:\\bin\\git\\', '\\etc', '.gitconfig']);
+var argVar = ['C:\\Git', 'D:\\bin\\git\\', '\\etc', '.gitconfig'];
+path.resolve.apply(null, argVar);
 // Returns: 'D:\\bin\\git\\etc\\.gitconfig'
    * @function resolve
    * @memberof Wsh.Path

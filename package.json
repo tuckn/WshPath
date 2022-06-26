@@ -2,7 +2,7 @@
   "name": "@tuckn/WshPath",
   "description": "Adds some useful functions (similar to Node.js path) that handles file path strings into WSH (Windows Script Host).",
   "version": "1.0.0",
-  "author": "Tuckn <tuckn333+github@gmail.com>",
+  "author": "Tuckn <tuckn333@gmail.com>",
   "private": false,
   "license": "MIT",
   "homepage": "https://docs.tuckn.net/WshPath",
