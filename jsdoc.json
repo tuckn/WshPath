@@ -37,9 +37,9 @@
     "openGraph": {
       "title": "WshPath",
       "type": "website",
-      "image": "https://docs.tuckn.net/WshPath/img/openGraph-image.png",
+      "image": "https://tuckn.net/docs/WshPath/img/openGraph-image.png",
       "site_name": "@tuckn/WshPath",
-      "url": "https://docs.tuckn.net/WshPath"
+      "url": "https://tuckn.net/docs/WshPath/"
     },
     "meta": {
       "title": "WshPath",

@@ -13,7 +13,7 @@
 if (!__filename) var __filename = String(WScript.ScriptFullName);
 
 /**
- * The parent directory path of `__filename`. Note the difference from {@link https://docs.tuckn.net/WshProcess/process.html#.cwd|process.cwd} that is `WScript.CreateObject('WScript.Shell').CurrentDirectory`
+ * The parent directory path of `__filename`. Note the difference from {@link https://tuckn.net/docs/WshProcess/process.html#.cwd|process.cwd} that is `WScript.CreateObject('WScript.Shell').CurrentDirectory`
  *
  * @global
  * @name __dirname
